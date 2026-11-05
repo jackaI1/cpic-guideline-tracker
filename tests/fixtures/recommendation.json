@@ -1,0 +1,108 @@
+[
+  {
+    "id": 8608483,
+    "guidelineid": 100421,
+    "drugid": "RxNorm:190521",
+    "implications": {
+      "HLA-B": "Low or reduced risk of abacavir hypersensitivity"
+    },
+    "drugrecommendation": "Use abacavir per standard dosing guidelines",
+    "classification": "Strong",
+    "phenotypes": {},
+    "activityscore": {},
+    "allelestatus": {
+      "HLA-B": "HLA-B*57:01 negative"
+    },
+    "lookupkey": {
+      "HLA-B": "*57:01 negative"
+    },
+    "population": "general",
+    "comments": "n/a"
+  },
+  {
+    "id": 8608579,
+    "guidelineid": 100414,
+    "drugid": "RxNorm:704",
+    "implications": {
+      "CYP2D6": "Greatly reduced metabolism of TCAs to less active compounds compared to normal metabolizers; Higher plasma concentrations of active drug will increase the probability of side effects",
+      "CYP2C19": "Reduced metabolism of tertiary amines compared to normal metabolizers"
+    },
+    "drugrecommendation": "Avoid amitriptyline use. If a amitripyline is warranted, consider a 50% reduction of recommended starting dose. Utilizing therapeutic drug monitoring to guide dose adjustments is strongly recommended.",
+    "classification": "Optional",
+    "phenotypes": {
+      "CYP2D6": "Poor Metabolizer",
+      "CYP2C19": "Intermediate Metabolizer"
+    },
+    "activityscore": {
+      "CYP2D6": "0.0",
+      "CYP2C19": "n/a"
+    },
+    "allelestatus": {},
+    "lookupkey": {
+      "CYP2D6": "0.0",
+      "CYP2C19": "Intermediate Metabolizer"
+    },
+    "population": "general",
+    "comments": "Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression. See other considerations for dosing recommendations for conditions where lower initial doses are used, such as neuropathic pain. Utilizing therapeutic drug monitoring if a tricyclic is prescribed to a patient with CYP2D6 ultrarapid, intermediate or poor metabolism in combination with CYP2C19 ultrarapid, intermediate or poor metabolism is strongly recommended."
+  },
+  {
+    "id": 8609187,
+    "guidelineid": 100411,
+    "drugid": "RxNorm:32968",
+    "implications": {
+      "CYP2C19": "Significantly reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
+    },
+    "drugrecommendation": "Avoid clopidogrel if possible. Consider an alternative P2Y12 inhibitor at standard dose if clinically indicated and no contraindication.",
+    "classification": "Moderate",
+    "phenotypes": {
+      "CYP2C19": "Poor Metabolizer"
+    },
+    "activityscore": {},
+    "allelestatus": {},
+    "lookupkey": {
+      "CYP2C19": "Poor Metabolizer"
+    },
+    "population": "NVI",
+    "comments": "For neurovascular indications. Neurovascular disease includes acute ischemic stroke or transient ischemic attack, secondary prevention of stroke, or prevention of thromboembolic events following neurointerventional procedures such as carotid artery stenting and stent-assisted coiling of intracranial aneurysms. Alternative P2Y12 inhibitors not impacted by CYP2C19 genetic variants include ticagrelor and ticlopidine. Prasugrel is contraindicated in patients with a history of stroke or TIA. Given limited outcomes data for genotype-guided anti-platelet therapy for neurovascular indications, selection of therapy should depend on individual patient treatment goals and risks for adverse events."
+  },
+  {
+    "id": 8610610,
+    "guidelineid": 100410,
+    "drugid": "RxNorm:121243",
+    "implications": {
+      "CYP2C19": "Higher dose-adjusted trough concentrations of voriconazole and may increase probability of adverse events"
+    },
+    "drugrecommendation": "Choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include liposomal amphotericin B and posaconazole. In the event that voriconazole is considered to be the most appropriate agent, based on clinical advice, for a patient with poor metabolizer genotype, voriconazole should be administered at a preferably lower than standard dosage with careful therapeutic drug monitoring.",
+    "classification": "Moderate",
+    "phenotypes": {
+      "CYP2C19": "Poor Metabolizer"
+    },
+    "activityscore": {},
+    "allelestatus": {},
+    "lookupkey": {
+      "CYP2C19": "Poor Metabolizer"
+    },
+    "population": "pediatrics",
+    "comments": "Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, therapeutic drug monitoring, and comorbidities. Recommendation based upon data extrapolated from adults."
+  },
+  {
+    "id": 8610618,
+    "guidelineid": 100410,
+    "drugid": "RxNorm:121243",
+    "implications": {
+      "CYP2C19": "Higher dose-adjusted trough concentrations of voriconazole and may increase probability of adverse events"
+    },
+    "drugrecommendation": "Choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include isavuconazole, liposomal amphotericin B, and posaconazole. In the event that voriconazole is considered to be the most appropriate agent, based on clinical advice, for a patient with poor metabolizer genotype, voriconazole should be administered at a preferably lower than standard dosage with careful therapeutic drug monitoring.",
+    "classification": "Moderate",
+    "phenotypes": {
+      "CYP2C19": "Poor Metabolizer"
+    },
+    "activityscore": {},
+    "allelestatus": {},
+    "lookupkey": {
+      "CYP2C19": "Poor Metabolizer"
+    },
+    "population": "adults",
+    "comments": "Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, therapeutic drug monitoring, and comorbidities."
+  }
+]

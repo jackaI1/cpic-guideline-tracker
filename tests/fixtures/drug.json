@@ -1,0 +1,27 @@
+[
+  {
+    "drugid": "RxNorm:704",
+    "name": "amitriptyline",
+    "guidelineid": 100414
+  },
+  {
+    "drugid": "RxNorm:121243",
+    "name": "voriconazole",
+    "guidelineid": 100410
+  },
+  {
+    "drugid": "RxNorm:32968",
+    "name": "clopidogrel",
+    "guidelineid": 100411
+  },
+  {
+    "drugid": "RxNorm:190521",
+    "name": "abacavir",
+    "guidelineid": 100421
+  },
+  {
+    "drugid": "RxNorm:154",
+    "name": "acenocoumarol",
+    "guidelineid": null
+  }
+]

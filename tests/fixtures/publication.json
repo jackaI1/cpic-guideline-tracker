@@ -1,0 +1,179 @@
+[
+  {
+    "id": 110001,
+    "guidelineid": 100410,
+    "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC®) Guideline for CYP2C19 and Voriconazole Therapy",
+    "authors": [
+      "Moriyama Brad",
+      "Obeng Aniwaa Owusu",
+      "Barbarino Julia",
+      "Penzak Scott R",
+      "Henning Stacey A",
+      "Scott Stuart A",
+      "Agúndez José A G",
+      "Wingard John R",
+      "McLeod Howard L",
+      "Klein Teri E",
+      "Cross Shane",
+      "Caudle Kelly E",
+      "Walsh Thomas J"
+    ],
+    "year": 2016,
+    "pmid": "27981572",
+    "doi": "10.1002/cpt.583",
+    "url": null
+  },
+  {
+    "id": 110014,
+    "guidelineid": 100421,
+    "title": "Clinical Pharmacogenetics Implementation Consortium Guidelines for HLA-B Genotype and Abacavir Dosing",
+    "authors": [
+      "Martin M A",
+      "Klein T E",
+      "Dong B J",
+      "Pirmohamed M",
+      "Haas D W",
+      "Kroetz D L"
+    ],
+    "year": 2012,
+    "pmid": "22378157",
+    "doi": "10.1038/clpt.2011.355",
+    "url": null
+  },
+  {
+    "id": 110015,
+    "guidelineid": 100421,
+    "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for HLA-B Genotype and Abacavir Dosing: 2014 update",
+    "authors": [
+      "Martin Michael A",
+      "Hoffman James M",
+      "Freimuth Robert R",
+      "Klein Teri E",
+      "Dong Betty J",
+      "Pirmohamed Munir",
+      "Hicks J Kevin",
+      "Wilkinson Mark R",
+      "Haas David W",
+      "Kroetz Deanna L"
+    ],
+    "year": 2014,
+    "pmid": "24561393",
+    "doi": "10.1038/clpt.2014.38",
+    "url": null
+  },
+  {
+    "id": 110005,
+    "guidelineid": 100411,
+    "title": "Clinical Pharmacogenetics Implementation Consortium Guidelines for Cytochrome P450-2C19 (CYP2C19) Genotype and Clopidogrel Therapy",
+    "authors": [
+      "Scott S A",
+      "Sangkuhl K",
+      "Gardner E E",
+      "Stein C M",
+      "Hulot J-S",
+      "Johnson J A",
+      "Roden D M",
+      "Klein T E",
+      "Shuldiner A R"
+    ],
+    "year": 2011,
+    "pmid": "21716271",
+    "doi": "10.1038/clpt.2011.132",
+    "url": null
+  },
+  {
+    "id": 110028,
+    "guidelineid": 100411,
+    "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for cytochrome P450-2C19 (CYP2C19) genotype and clopidogrel therapy: 2013 Update",
+    "authors": [
+      "Scott Stuart A",
+      "Sangkuhl Katrin",
+      "Stein C Michael",
+      "Hulot Jean-Sébastien",
+      "Mega Jessica L",
+      "Roden Dan M",
+      "Klein Teri E",
+      "Sabatine Marc S",
+      "Johnson Julie A",
+      "Shuldiner Alan R"
+    ],
+    "year": 2013,
+    "pmid": "23698643",
+    "doi": "10.1038/clpt.2013.105",
+    "url": null
+  },
+  {
+    "id": 1608551,
+    "guidelineid": 100411,
+    "title": "Clinical Pharmacogenetics Implementation Consortium Guideline for CYP2C19 Genotype and Clopidogrel Therapy: 2022 Update.",
+    "authors": [
+      "Lee Craig R",
+      "Luzum Jasmine A",
+      "Sangkuhl Katrin",
+      "Gammal Roseann S",
+      "Sabatine Marc S",
+      "Stein C Michael",
+      "Kisor David F",
+      "Limdi Nita A",
+      "Lee Yee Ming",
+      "Scott Stuart A",
+      "Hulot Jean-Sébastien",
+      "Roden Dan M",
+      "Gaedigk Andrea",
+      "Caudle Kelly E",
+      "Klein Teri E",
+      "Johnson Julie A",
+      "Shuldiner Alan R"
+    ],
+    "year": 2022,
+    "pmid": "35034351",
+    "doi": "10.1002/cpt.2526",
+    "url": null
+  },
+  {
+    "id": 110011,
+    "guidelineid": 100414,
+    "title": "Clinical Pharmacogenetics Implementation Consortium Guideline for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants",
+    "authors": [
+      "Hicks J K",
+      "Swen J J",
+      "Thorn C F",
+      "Sangkuhl K",
+      "Kharasch E D",
+      "Ellingrod V L",
+      "Skaar T C",
+      "Müller D J",
+      "Gaedigk A",
+      "Stingl J C"
+    ],
+    "year": 2013,
+    "pmid": "23486447",
+    "doi": "10.1038/clpt.2013.2",
+    "url": null
+  },
+  {
+    "id": 110004,
+    "guidelineid": 100414,
+    "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC®) for CYP2D6 and CYP2C19 Genotypes and Dosing of Tricyclic Antidepressants: 2016 Update",
+    "authors": [
+      "Kevin Hicks J",
+      "Sangkuhl Katrin",
+      "Swen Jesse J",
+      "Ellingrod Vicki L",
+      "Müller Daniel J",
+      "Shimoda Kazutaka",
+      "Bishop Jeffrey R",
+      "Kharasch Evan D",
+      "Skaar Todd C",
+      "Gaedigk Andrea",
+      "Dunnenberger Henry M",
+      "Klein Teri E",
+      "Caudle Kelly E",
+      "Stingl Julia C"
+    ],
+    "year": 2016,
+    "pmid": "27997040",
+    "doi": "10.1002/cpt.597",
+    "url": null
+  }
+]
