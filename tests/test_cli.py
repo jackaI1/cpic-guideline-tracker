@@ -57,6 +57,27 @@ class CliTests(unittest.TestCase):
                 self.assertEqual(r.returncode, 2)
                 self.assertNotIn('Traceback', r.stderr)
 
+    def test_malformed_lookup_fields_fail_cleanly(self):
+        from cpic_tracker.snapshot import digest
+        for bad_field in ['null-guideline', 'numeric-level']:
+            s = build_snapshot(tables(), {'kind': 'fixture'})
+            if bad_field == 'null-guideline':
+                for r in s['tables']['recommendation']:
+                    if r['drugid'] == 'RxNorm:121243': r['guidelineid'] = None
+                for p in s['tables']['pair']:
+                    if p['drugid'] == 'RxNorm:121243': p['guidelineid'] = None
+            else:
+                for p in s['tables']['pair']:
+                    if p['drugid'] == 'RxNorm:121243': p['cpiclevel'] = 1
+            s['tables_sha256'] = digest(s['tables'])
+            with tempfile.TemporaryDirectory() as directory:
+                p = Path(directory) / 'malformed.json'; p.write_text(json.dumps(s))
+                r = subprocess.run([sys.executable, '-m', 'cpic_tracker', 'lookup', str(p),
+                                    '--drug', 'voriconazole', '--phenotype', 'CYP2C19=Poor Metabolizer',
+                                    '--population', 'adults'], text=True, capture_output=True)
+                self.assertEqual(r.returncode, 2)
+                self.assertNotIn('Traceback', r.stderr)
+
     def test_failed_download_leaves_no_snapshot(self):
         with tempfile.TemporaryDirectory() as directory:
             p = Path(directory) / 'absent.json'

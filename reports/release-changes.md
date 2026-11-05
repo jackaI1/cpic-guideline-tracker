@@ -46,7 +46,7 @@ After:
 
 ## Changed: pair \['CYP2D6', 'RxNorm:68091'\]
 
-[No linked guideline; CPIC source record](https://api.cpicpgx.org/v1/pair?pairid=eq.110328)
+[No linked guideline; current CPIC API source record](https://api.cpicpgx.org/v1/pair?pairid=eq.110328)
 [Source guideline: CYP2D6 and Ondansetron and Tropisetron](https://www.clinpgx.org/guideline/PA166251457)
 
 Fields: guidelineid
@@ -69,7 +69,7 @@ After:
 
 ## Changed: pair \['CYP2D6', 'RxNorm:70561'\]
 
-[No linked guideline; CPIC source record](https://api.cpicpgx.org/v1/pair?pairid=eq.110379)
+[No linked guideline; current CPIC API source record](https://api.cpicpgx.org/v1/pair?pairid=eq.110379)
 [Source guideline: CYP2D6 and Ondansetron and Tropisetron](https://www.clinpgx.org/guideline/PA166251457)
 
 Fields: guidelineid
@@ -1208,7 +1208,7 @@ After:
 
 ## Changed: drug \['RxNorm:68091'\]
 
-[No linked guideline; CPIC source record](https://api.cpicpgx.org/v1/drug?drugid=eq.RxNorm%3A68091)
+[No linked guideline; current CPIC API source record](https://api.cpicpgx.org/v1/drug?drugid=eq.RxNorm%3A68091)
 [Source guideline: CYP2D6 and Ondansetron and Tropisetron](https://www.clinpgx.org/guideline/PA166251457)
 
 Fields: guidelineid
@@ -1231,7 +1231,7 @@ After:
 
 ## Changed: drug \['RxNorm:70561'\]
 
-[No linked guideline; CPIC source record](https://api.cpicpgx.org/v1/drug?drugid=eq.RxNorm%3A70561)
+[No linked guideline; current CPIC API source record](https://api.cpicpgx.org/v1/drug?drugid=eq.RxNorm%3A70561)
 [Source guideline: CYP2D6 and Ondansetron and Tropisetron](https://www.clinpgx.org/guideline/PA166251457)
 
 Fields: guidelineid

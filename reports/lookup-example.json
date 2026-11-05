@@ -25,8 +25,14 @@
           "url": "https://pubmed.ncbi.nlm.nih.gov/27981572/"
         }
       ],
-      "source_record": "https://api.cpicpgx.org/v1/recommendation?id=eq.8610618"
+      "current_api_record": "https://api.cpicpgx.org/v1/recommendation?id=eq.8610618"
     }
   ],
+  "snapshot_source": {
+    "download_sha256": "372f547b003fdff9c3357e606efb6adfa184843b6b63fab948eeea479b21e510",
+    "kind": "release-export",
+    "release_tag": "v1.61.0",
+    "url": "https://files.cpicpgx.org/data/database/cpic_db_dump-v1.61.0.sql.gz"
+  },
   "notice": "Learning project, not clinical decision support. Read the full guideline."
 }

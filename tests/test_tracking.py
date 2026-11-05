@@ -114,6 +114,16 @@ class LookupTests(unittest.TestCase):
             if p['drugid'] == 'RxNorm:121243': p['removed'] = True
         self.assertEqual(lookup(s, 'voriconazole', {'CYP2C19': 'Poor Metabolizer'}, 'adults')['status'], 'no guideline')
 
+    def test_conflicting_normalized_gene_keys_are_rejected(self):
+        s = snapshot()
+        row = next(r for r in s['tables']['recommendation'] if r['id'] == 8610618)
+        for field in ['phenotypes', 'lookupkey']:
+            row[field] = {'CYP2C19': 'Ultrarapid Metabolizer', 'cyp2c19': 'Poor Metabolizer'}
+        with self.assertRaises(ValueError):
+            lookup(s, 'voriconazole', {'CYP2C19': 'Poor Metabolizer'}, 'adults')
+        with self.assertRaises(ValueError):
+            lookup(snapshot(), 'voriconazole', {'CYP2C19': 'Normal', 'cyp2c19': 'Poor Metabolizer'}, 'adults')
+
     def test_drug_id_is_supported_without_fuzzy_matching(self):
         self.assertEqual(lookup(snapshot(), 'RxNorm:121243', {'CYP2C19': 'Poor Metabolizer'}, 'adults')['status'], 'guideline')
         self.assertEqual(lookup(snapshot(), 'voriconazol', {'CYP2C19': 'Poor Metabolizer'}, 'adults')['status'], 'no guideline')

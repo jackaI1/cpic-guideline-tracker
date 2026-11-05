@@ -39,7 +39,7 @@ def _sources(table, row, tables):
     if guideline:
         return [{'label': 'Source guideline: ' + guideline['name'], 'url': guideline['url']}]
     idfield = 'pairid' if table == 'pair' else 'drugid' if table == 'drug' else 'id'
-    return [{'label': 'No linked guideline; CPIC source record',
+    return [{'label': 'No linked guideline; current CPIC API source record',
              'url': BASE_URL + table + '?' + urlencode({idfield: 'eq.' + str(row[idfield])})}]
 
 

@@ -7,7 +7,15 @@ def _normal(value):
 
 
 def _normalized_map(values):
-    return {_normal(k): _normal(v) for k, v in values.items()}
+    normalized = {}
+    for key, value in values.items():
+        if not isinstance(key, str) or not isinstance(value, str):
+            raise ValueError('gene maps must contain text keys and values')
+        gene = _normal(key)
+        if not gene or gene in normalized:
+            raise ValueError('duplicate or empty normalized gene key')
+        normalized[gene] = _normal(value)
+    return normalized
 
 
 def lookup(snapshot, drug, phenotypes, population=None):
@@ -61,7 +69,9 @@ def lookup(snapshot, drug, phenotypes, population=None):
                         'implications': row['implications'], 'classification': row['classification'],
                         'population': row['population'], 'phenotypes': row['phenotypes'],
                         'guideline_url': guideline['url'], 'guideline_notes': guideline['notesonusage'],
-                        'citations': citations, 'source_record': BASE_URL + 'recommendation?id=eq.' + str(row['id'])})
+                        'citations': citations, 'current_api_record': BASE_URL + 'recommendation?id=eq.' + str(row['id'])})
     return {'status': 'guideline', 'drug': drugs[0]['name'],
             'snapshot_captured_at': snapshot['captured_at'], 'matches': matches,
+            'snapshot_source': {k: v for k, v in snapshot['source'].items()
+                                if k in {'kind', 'url', 'release_tag', 'download_sha256'}},
             'notice': 'Learning project, not clinical decision support. Read the full guideline.'}

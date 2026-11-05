@@ -81,6 +81,23 @@ class ReleaseTests(unittest.TestCase):
         self.assertEqual(data['guideline'][0]['genes'], ['CYP2C19'])
         self.assertEqual(data['guideline'][0]['id'], 1)
 
+    def test_new_copy_header_before_terminator_rejected(self):
+        data = tables()
+        from cpic_tracker.source import COLUMNS
+        text = ''
+        for table in COLUMNS:
+            columns = COLUMNS[table].split()
+            text += 'COPY cpic.' + table + ' (' + ', '.join(columns) + ') FROM stdin;\n'
+            # Empty blocks suffice to verify the structural parser boundary.
+            if table != 'pair':
+                text += '\\.\n'
+        with tempfile.TemporaryDirectory() as directory:
+            p = Path(directory) / 'broken.gz'
+            with gzip.open(p, 'wt') as f:
+                f.write(text)
+            with self.assertRaises(ValueError):
+                read_release(p)
+
     def test_incomplete_dump_rejected(self):
         with tempfile.TemporaryDirectory() as directory:
             p = Path(directory) / 'empty.gz'
@@ -116,11 +133,22 @@ class SnapshotTests(unittest.TestCase):
                  ('drug', 'name', None), ('recommendation', 'drugrecommendation', None),
                  ('recommendation', 'phenotypes', {'CYP2C19': None}),
                  ('recommendation', 'lookupkey', {'CYP2C19': 0}),
-                 ('guideline', 'genes', 'CYP2C19')]
+                 ('guideline', 'genes', 'CYP2C19'), ('pair', 'cpiclevel', 1),
+                 ('recommendation', 'guidelineid', None),
+                 ('recommendation', 'phenotypes', {'CYP2C19': 'Normal', 'cyp2c19': 'Poor'})]
         for table, field, value in cases:
             data = tables(); data[table][0][field] = value
             with self.subTest(table=table, field=field), self.assertRaises(ValueError):
                 build_snapshot(data, {'kind': 'fixture'})
+
+    def test_missing_provenance_envelope_rejected(self):
+        for field in ['source', 'started_at', 'captured_at']:
+            s = build_snapshot(tables(), {'kind': 'fixture'})
+            del s[field]
+            with tempfile.TemporaryDirectory() as directory:
+                p = Path(directory) / 'missing.json'; p.write_text(json.dumps(s))
+                with self.subTest(field=field), self.assertRaises(ValueError):
+                    load_snapshot(p)
 
     def test_tampered_snapshot_rejected(self):
         s = build_snapshot(tables(), {'kind': 'fixture'})

@@ -115,11 +115,14 @@ def _typed(column, value):
 
 def read_release(path, require_all=True):
     """Parse selected COPY blocks as data. Never execute SQL or start a database."""
-    data, table, seen = {}, None, set()
+    data, table, seen, in_copy = {}, None, set(), False
     with gzip.open(path, 'rt', encoding='utf-8') as stream:
         for line in stream:
             match = re.match(r'COPY cpic\.(\w+) \(([^)]+)\) FROM stdin;', line)
             if match:
+                if in_copy:
+                    raise ValueError('new COPY header before previous block terminator')
+                in_copy = True
                 table = match[1] if match[1] in COLUMNS else None
                 columns = match[2].split(', ')
                 if table:
@@ -131,6 +134,7 @@ def read_release(path, require_all=True):
                     data[table] = []
             elif line == '\\.\n':
                 table = None
+                in_copy = False
             elif table:
                 values = line.rstrip('\n').split('\t')
                 if len(values) != len(columns):
@@ -139,6 +143,6 @@ def read_release(path, require_all=True):
                 row = {c: _typed(c, _copy_value(raw[c])) for c in COLUMNS[table].split()}
                 if table != 'publication' or row['guidelineid'] is not None:
                     data[table].append(row)
-    if table is not None or (require_all and set(data) != set(COLUMNS)):
+    if in_copy or (require_all and set(data) != set(COLUMNS)):
         raise ValueError('incomplete release export')
     return data
