@@ -25,12 +25,28 @@ def validate_tables(tables):
             if not isinstance(row, dict) or not set(columns.split()).issubset(row):
                 raise ValueError('missing source columns: ' + name)
             key = row[ORDER[name]]
-            if key is None or key in index:
+            expected_type = str if name == 'drug' else int
+            if type(key) is not expected_type or key in index:
                 raise ValueError('duplicate or null source id: ' + name)
             index[key] = row
             for field in JSON_FIELDS.intersection(row):
-                if not isinstance(row[field], dict):
+                if (not isinstance(row[field], dict)
+                        or not all(isinstance(k, str) and isinstance(v, str)
+                                   for k, v in row[field].items())):
                     raise ValueError('invalid JSON object: ' + field)
+            for field in {'removed', 'usedforrecommendation'}.intersection(row):
+                if type(row[field]) is not bool:
+                    raise ValueError('invalid boolean: ' + field)
+            required_text = {'drug': ['name'], 'pair': ['genesymbol', 'drugid'],
+                             'guideline': ['name', 'url'],
+                             'recommendation': ['drugid', 'drugrecommendation', 'population'],
+                             'publication': []}[name]
+            if any(not isinstance(row[f], str) or not row[f].strip() for f in required_text):
+                raise ValueError('invalid required text in ' + name)
+            for field in {'genes', 'authors'}.intersection(row):
+                if (not isinstance(row[field], list)
+                        or not all(isinstance(v, str) for v in row[field])):
+                    raise ValueError('invalid text array: ' + field)
         indexes[name] = index
     for row in tables['guideline']:
         url = urlparse(row['url'] or '')

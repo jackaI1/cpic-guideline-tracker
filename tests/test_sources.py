@@ -111,6 +111,17 @@ class SnapshotTests(unittest.TestCase):
             with self.subTest(variant=variants.index(variant)), self.assertRaises(ValueError):
                 build_snapshot(variant, {'kind': 'fixture'})
 
+    def test_wrong_field_types_fail_closed(self):
+        cases = [('pair', 'removed', None), ('pair', 'usedforrecommendation', 'false'),
+                 ('drug', 'name', None), ('recommendation', 'drugrecommendation', None),
+                 ('recommendation', 'phenotypes', {'CYP2C19': None}),
+                 ('recommendation', 'lookupkey', {'CYP2C19': 0}),
+                 ('guideline', 'genes', 'CYP2C19')]
+        for table, field, value in cases:
+            data = tables(); data[table][0][field] = value
+            with self.subTest(table=table, field=field), self.assertRaises(ValueError):
+                build_snapshot(data, {'kind': 'fixture'})
+
     def test_tampered_snapshot_rejected(self):
         s = build_snapshot(tables(), {'kind': 'fixture'})
         s['tables']['recommendation'][0]['drugrecommendation'] = 'tampered'
