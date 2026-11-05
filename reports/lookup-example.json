@@ -1,0 +1,38 @@
+{
+  "status": "guideline",
+  "drug": "voriconazole",
+  "snapshot_captured_at": "2026-11-05T06:15:43.631694+00:00",
+  "matches": [
+    {
+      "recommendation": "Choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include isavuconazole, liposomal amphotericin B, and posaconazole. In the event that voriconazole is considered to be the most appropriate agent, based on clinical advice, for a patient with poor metabolizer genotype, voriconazole should be administered at a preferably lower than standard dosage with careful therapeutic drug monitoring.",
+      "comments": "Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, therapeutic drug monitoring, and comorbidities.",
+      "implications": {
+        "CYP2C19": "Higher dose-adjusted trough concentrations of voriconazole and may increase probability of adverse events"
+      },
+      "classification": "Moderate",
+      "population": "adults",
+      "phenotypes": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "guideline_url": "https://www.clinpgx.org/guideline/PA166251456",
+      "guideline_notes": null,
+      "citations": [
+        {
+          "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC®) Guideline for CYP2C19 and Voriconazole Therapy",
+          "year": 2016,
+          "pmid": "27981572",
+          "doi": "10.1002/cpt.583",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/27981572/"
+        }
+      ],
+      "current_api_record": "https://api.cpicpgx.org/v1/recommendation?id=eq.8610618"
+    }
+  ],
+  "snapshot_source": {
+    "download_sha256": "372f547b003fdff9c3357e606efb6adfa184843b6b63fab948eeea479b21e510",
+    "kind": "release-export",
+    "release_tag": "v1.61.0",
+    "url": "https://files.cpicpgx.org/data/database/cpic_db_dump-v1.61.0.sql.gz"
+  },
+  "notice": "Learning project, not clinical decision support. Read the full guideline."
+}
