@@ -1,10 +1,18 @@
-# CPIC guideline tracker
+I merged this into my existing [lab-assay-lims project](https://github.com/jackaI1/lab-assay-lims/tree/main/projects/cpic-guideline-tracker). The current code is in `projects/cpic-guideline-tracker/` there. I kept the code here so older links still work.
 
-I built a guideline change tracker because I wanted a way to see what changed without comparing drug recommendation tables by hand. CPIC, the Clinical Pharmacogenetics Implementation Consortium, publishes guidance about how genetic differences can affect drug prescribing. I save dated copies of its public data, compare them, and link each change back to its source.
+The move keeps the original layout, including `cpic_tracker/lookup.py`, `cpic_tracker/__init__.py`, `cpic_tracker/cli.py`, `cpic_tracker/source.py`. I replaced the README with the report below and left out Git history, installed dependencies, caches and generated build output from the hub copy.
 
-I can also look up a drug and a gene phenotype, a description such as “Poor Metabolizer.” The tool returns CPIC's recommendation text verbatim with its guideline link and publication citations. If the saved data has no exact supported match, it says **“no guideline”** instead of guessing.
+The 5 test source files moved with the code. No project-specific GitHub Actions workflow was retained; the report records the omitted checks, and the test sources can be run locally from the linked folder.
 
-**This is a learning project, not clinical decision support. Do not use it to choose a drug or dose.** A lookup is limited to the saved snapshot and supported inputs. Read the full source guideline, including its limitations.
+Other specific omissions: reports/ (generated output).
+
+Omitted workflows: `cpic-guideline-tracker-ci.yml`: Relocated CI failed because the test suite expects generated report files omitted from the source-only snapshot.
+
+---
+
+# cpic-guideline-tracker
+
+I built a guideline change tracker to learn how the underlying idea works. This is a learning project.
 
 ## Read it without installing anything
 
@@ -62,18 +70,12 @@ The API does not promise a single database transaction across requests. Matching
 
 Each lookup includes the guideline URL and the publications associated with that guideline. That list is guideline-level bibliography, not a claim that every paper independently supports that particular row. I use only public reference data and no patient records.
 
-## Checks and measured results
+## Tests and limits
 
-The checked-in live snapshot contains **635 pair rows**, **570 active pairs**, **2,159 recommendation rows**, and **29 guidelines**. Reproduce these figures with:
+There are 5 test source files in this copy. That source count does not establish an execution result. This is a source snapshot, and running it on a new machine may need environment-specific setup.
 
-```sh
-python3 -m cpic_tracker stats snapshots/api-2026-11-05.json
-```
 
-The saved historical report contains **54 changed records**. Generate the same report with the `compare` command above; the detailed entries show which fields changed.
 
-```sh
-python3 -m unittest discover -v
-```
+Generated output omitted from this copy: reports/ (generated output). Regenerate it with the project scripts.
 
-GitHub Actions runs the tests on the supported Python versions and regenerates the saved report and lookup example. Tests use fixed subsets of the real API response plus explicitly labelled synthetic mutations for error and change cases. They cover pagination, interrupted downloads, snapshot integrity, source links, exact text, missing guidance, retirement, population selection and incomplete inputs. No test needs the network.
+The relocated workflow was removed: Relocated CI failed because the test suite expects generated report files omitted from the source-only snapshot.
